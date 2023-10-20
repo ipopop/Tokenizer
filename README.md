@@ -1,6 +1,30 @@
 # Text Processing and Wordcloud Generation 📚🖼️
 
-This is a Python project that processes text and generates a word cloud. The project follows the principles of clean architecture and uses a three-step Test-Driven Development (TDD) approach.
+This is a Python project that processes text and generates a word cloud (generate png in 'wordclouds/' dir), an example to use tokenization and Natural Language Processing (NLP) techniques. The project follows the principles of clean architecture and uses a three-step Test-Driven Development (TDD) approach.
+
+The detail of process :
+
+1. Find a webpage, a text, or any other NLP dataset.
+
+2. Tokenize the text using NLTK 'WordPunctTokenizer'.
+
+3. Explore the list of 'tokens' and their frequency.
+
+4. Experiment with the 'WordCloud()' parameters to generate different word clouds from the original text:
+
+    - collocations = False
+
+    - normalize_plurals = True or False
+
+    - include_numbers = True or False
+
+    - min_word_length
+
+    - stopwords
+
+5. Remove 'stopwords' from the original text.
+
+6. Use 'string.punctuation' and 'string.digits' to remove punctuation and numbers.
 
 ## Table of Contents 📝
   - [Installation 📦](#installation-)
@@ -56,6 +80,8 @@ To run the application, navigate to the directory containing the main.py file an
 ```bash
 python3 main.py
 ```
+
+This script create word cloud images in the 'wordclouds' directory (100 max).
 
 ## Contributing 🤝
 
