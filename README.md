@@ -1,25 +1,66 @@
-# Tokenizer
-Apply Tokenization Techniques with Python3
+# Text Processing and Wordcloud Generation 📚🖼️
 
-## Todo :
+This is a Python project that processes text and generates a word cloud. The project follows the principles of clean architecture and uses a three-step Test-Driven Development (TDD) approach.
 
-> Stopwords, tokenizers, and word clouds may seem simple to implement, but the devil is in the details when working on a text. It’s important to get some practice with these powerful tools.
+## Table of Contents 📝
+  - [Installation 📦](#installation-)
+  - [Clean Architecture 🏛️](#clean-architecture-️)
+  - [Test-Driven Development (TDD) 🧪](#test-driven-development-tdd-)
+  - [Execution 🏃‍♀️](#execution-️)
+    - [Running Tests](#running-tests)
+    - [Running the Application](#running-the-application)
+  - [Contributing 🤝](#contributing-)
+  - [License 📄](#license-)
 
-Here are some steps to follow:
+## Installation 📦
 
-1. Find a 'Wikipedia' page, a text from 'Project Gutenberg', or any other NLP dataset.
+To install the necessary dependencies, run the following command:
 
-2. Tokenize the text using 'NLTK  WordPunctTokenizer'.
+```bash
+pip3 install -r requirements.txt
+```
 
-3. Explore the list of 'tokens' and their frequency.
+## Clean Architecture 🏛️
 
-4.  Experiment with the 'WordCloud()' parameters to generate different word clouds from the original text:
-    - collocations = False
-    - normalize_plurals = True or False
-    - include_numbers = True or False
-    - min_word_length
-    - stopwords
+The project is divided into two main parts: the StopwordsRemover and the WordcloudGenerator.
 
-5. Remove 'stopwords' from the original text.
+The StopwordsRemover is responsible for removing common words (like "the", "is", etc.) from the text.
+The WordcloudGenerator takes the processed text and generates a word cloud.
 
-6.  Use 'string.punctuation' and  'string.digits' to remove punctuation and numbers.
+## Test-Driven Development (TDD) 🧪
+
+The project uses a three-step TDD approach:
+
+   - Write a failing test. 🚫
+   - Write the code to make the test pass. ✅
+   - Refactor the code to improve its design and readability. 🔄
+
+The tests are written using the unittest module in Python.
+
+## Execution 🏃‍♀️
+
+### Running Tests
+
+To run the tests, navigate to the directory containing the test files and run the following command:
+
+```bash
+python3 -m unittest tests.test_stopwords_remover
+python3 -m unittest tests.test_wordcloud_generator
+```
+and so on...
+
+### Running the Application
+
+To run the application, navigate to the directory containing the main.py file and run the following command:
+
+```bash
+python3 main.py
+```
+
+## Contributing 🤝
+
+If you would like to contribute to the project, please follow the TDD approach and create a pull request with your changes.
+
+## License 📄
+
+This project is licensed under the MIT License.
