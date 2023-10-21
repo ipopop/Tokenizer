@@ -1,30 +1,18 @@
+from src.tokenizer.tokenizer import Tokenizer
 import unittest
-from src.tokenizer.tokenizer import Tokenizer  # Update with your actual import path
 
 class TestTokenizer(unittest.TestCase):
     def setUp(self):
         self.tokenizer = Tokenizer()
-        self.text = "Your test text here"
 
     def test_tokenize(self):
-        tokens = self.tokenizer.tokenize(self.text)
-        # Add assertions here
+        text = "This is a test"
+        expected = ["This", "is", "a", "test"]
+        actual = self.tokenizer.tokenize(text)
+        self.assertEqual(expected, actual)
 
     def test_token_frequency(self):
-        freq = self.tokenizer.token_frequency(self.text)
-        # Add assertions here
-
-    def test_word_cloud(self):
-        word_cloud = self.tokenizer.generate_word_cloud(self.text)
-        # Add assertions here
-
-    def test_remove_stopwords(self):
-        text_without_stopwords = self.tokenizer.remove_stopwords(self.text)
-        # Add assertions here
-
-    def test_remove_punctuation_and_numbers(self):
-        text_without_punct_and_nums = self.tokenizer.remove_punctuation_and_numbers(self.text)
-        # Add assertions here
-
-if __name__ == '__main__':
-    unittest.main()
+        tokens = ["This", "is", "a", "test", "test"]
+        expected = {"This": 1, "is": 1, "a": 1, "test": 2}
+        actual = self.tokenizer.token_frequency(tokens)
+        self.assertEqual(expected, actual)
