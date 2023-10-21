@@ -297,4 +297,4 @@ To achieve the desired logging, you would need to modify several files in your p
 
 ---
 
-<!-- Now it's ok all this stuff is done... good work! -->
+Now it's ok all this stuff is done... good work!
