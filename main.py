@@ -12,10 +12,16 @@ def main():
     text = "This is a sample sentence, showing off the stop words filtration and word cloud generation."
 
     # Remove stopwords
+    start_time = time.time()
     text_without_stopwords = stopwords_remover.remove_stopwords(text)
+    end_time = time.time()
+    print(f"5. Remove 'stopwords' from the original text...✅ ({(end_time - start_time) * 1000} ms)")
 
     # Generate wordcloud
+    start_time = time.time()
     wordcloud = wordcloud_generator.generate_wordcloud(text_without_stopwords)
+    end_time = time.time()
+    print(f"4. Experiment with the 'WordCloud()' parameters to generate different word clouds from the original text...✅ ({(end_time - start_time) * 1000} ms)")
 
     # Create a directory for the wordcloud images if it doesn't exist
     os.makedirs("wordclouds", exist_ok=True)
