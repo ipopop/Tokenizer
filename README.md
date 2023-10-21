@@ -2,6 +2,8 @@
 
 This is a Python project that processes text and generates a word cloud (generate png in 'wordclouds/' dir), an example to use tokenization and Natural Language Processing (NLP) techniques. The project follows the principles of clean architecture and uses a three-step Test-Driven Development (TDD) approach.
 
+![wordcloud example](https://raw.githubusercontent.com/ipopop/Tokenizer/main/wordclouds/wordcloud-20231021-165525.png)
+
 The detail of process :
 
 1. Find a webpage, a text, or any other NLP dataset.
@@ -27,6 +29,8 @@ The detail of process :
 6. Use 'string.punctuation' and 'string.digits' to remove punctuation and numbers.
 
 ## Table of Contents 📝
+- [Text Processing and Wordcloud Generation 📚🖼️](#text-processing-and-wordcloud-generation-️)
+  - [Table of Contents 📝](#table-of-contents-)
   - [Installation 📦](#installation-)
   - [Clean Architecture 🏛️](#clean-architecture-️)
   - [Test-Driven Development (TDD) 🧪](#test-driven-development-tdd-)
