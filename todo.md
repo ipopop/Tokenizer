@@ -297,4 +297,68 @@ To achieve the desired logging, you would need to modify several files in your p
 
 ---
 
+There is one file and one emplacement for the log.
+
+All files functions and methods in the project must ref. to this unique file in this unique dir.
+
+Only ONE function must be dedicated to the log management and the access to this file.
+
+logs/project_logs.log
+
+---
+
+log content example :
+
+2023-10-21 20:13:55,057 - logs/project_logs.log - INFO - Fetching HTML from http://www.gutenberg.org/files/1342/1342-0.txt
+2023-10-21 20:13:56,776 - logs/project_logs.log - INFO - Successfully fetched HTML
+2023-10-21 20:13:56,779 - logs/project_logs.log - INFO - Parsing HTML
+2023-10-21 20:13:56,788 - logs/project_logs.log - INFO - Successfully parsed HTML
+2023-10-21 20:13:56,788 - logs/project_logs.log - INFO - Cleaning text
+2023-10-21 20:13:56,801 - logs/project_logs.log - INFO - Successfully cleaned text
+2023-10-21 20:13:56,801 - logs/project_logs.log - INFO - Fetching HTML from https://en.wikipedia.org/wiki/Natural_language_processing
+2023-10-21 20:13:57,338 - logs/project_logs.log - INFO - Successfully fetched HTML
+2023-10-21 20:13:57,341 - logs/project_logs.log - INFO - Parsing HTML
+2023-10-21 20:13:57,540 - logs/project_logs.log - INFO - Successfully parsed HTML
+2023-10-21 20:13:57,543 - logs/project_logs.log - INFO - Cleaning text
+2023-10-21 20:13:57,544 - logs/project_logs.log - INFO - Successfully cleaned text
+2023-10-21 20:13:57,552 - logs/project_logs.log - INFO - Calculated frequencies for 4 unique tokens
+2023-10-21 20:13:57,552 - logs/project_logs.log - INFO - Generated 4 tokens
+2023-10-21 20:13:57,658 - src.utils.logger_setup - INFO - Test log message
+2023-10-21 20:16:11,194 - logs/project_logs.log - INFO - Fetching HTML from http://www.gutenberg.org/files/1342/1342-0.txt
+2023-10-21 20:16:12,906 - logs/project_logs.log - INFO - Successfully fetched HTML
+2023-10-21 20:16:12,910 - logs/project_logs.log - INFO - Parsing HTML
+2023-10-21 20:16:12,920 - logs/project_logs.log - INFO - Successfully parsed HTML
+2023-10-21 20:16:12,920 - logs/project_logs.log - INFO - Cleaning text
+2023-10-21 20:16:12,930 - logs/project_logs.log - INFO - Successfully cleaned text
+2023-10-21 20:16:12,930 - logs/project_logs.log - INFO - Fetching HTML from https://en.wikipedia.org/wiki/Natural_language_processing
+2023-10-21 20:16:13,321 - logs/project_logs.log - INFO - Successfully fetched HTML
+2023-10-21 20:16:13,324 - logs/project_logs.log - INFO - Parsing HTML
+2023-10-21 20:16:13,510 - logs/project_logs.log - INFO - Successfully parsed HTML
+2023-10-21 20:16:13,512 - logs/project_logs.log - INFO - Cleaning text
+2023-10-21 20:16:13,513 - logs/project_logs.log - INFO - Successfully cleaned text
+2023-10-21 20:16:13,520 - logs/project_logs.log - INFO - Calculated frequencies for 4 unique tokens
+2023-10-21 20:16:13,520 - logs/project_logs.log - INFO - Generated 4 tokens
+2023-10-21 20:16:13,617 - src.utils.logger_setup - INFO - Test log message
+2023-10-21 20:18:01,144 - logs/project_logs.log - INFO - Fetching HTML from http://www.gutenberg.org/files/1342/1342-0.txt
+2023-10-21 20:18:02,947 - logs/project_logs.log - INFO - Successfully fetched HTML
+2023-10-21 20:18:02,950 - logs/project_logs.log - INFO - Parsing HTML
+2023-10-21 20:18:02,961 - logs/project_logs.log - INFO - Successfully parsed HTML
+2023-10-21 20:18:02,961 - logs/project_logs.log - INFO - Cleaning text
+2023-10-21 20:18:02,970 - logs/project_logs.log - INFO - Successfully cleaned text
+2023-10-21 20:18:02,970 - logs/project_logs.log - INFO - 1. Fetch text...✅ (1826.2009620666504 ms)
+2023-10-21 20:18:03,024 - logs/project_logs.log - INFO - Generated 161064 tokens
+2023-10-21 20:18:03,024 - logs/project_logs.log - INFO - 2. Tokenize the text...✅ (53.8938045501709 ms)
+2023-10-21 20:18:03,083 - logs/project_logs.log - INFO - 3. Remove punctuation and numbers...✅ (58.641910552978516 ms)
+2023-10-21 20:18:03,403 - logs/project_logs.log - INFO - 4. Remove 'stopwords' from the original text...✅ (319.5493221282959 ms)
+2023-10-21 20:18:04,068 - logs/project_logs.log - INFO - 5. Experiment with the 'WordCloud()' parameters to generate different word clouds from the original text...✅ (665.4462814331055 ms)
+2023-10-21 20:18:04,280 - logs/project_logs.log - INFO - Word cloud generated and saved as wordclouds/wordcloud-20231021-201804.png
+
+---
+
+I MUST REPEAT : complete and efficient code please (NO SNIPPET, no approximation, no examples, no BAD AI code)
+
+give me the name and place of the file, and the complet associed new code
+
+---
+
 Now it's ok all this stuff is done... good work!

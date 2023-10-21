@@ -1,6 +1,11 @@
 import logging
+import os
 
-def logger_setup(log_file, logger_name=__name__, level=logging.INFO):
+def logger_setup(logger_name=__name__, level=logging.INFO):
+    # Define the log file path
+    log_file = os.path.join(os.path.dirname(__file__), '..', '..', 'logs', 'project_logs.log')
+    log_file = os.path.abspath(log_file)  # Convert to absolute path
+
     # Create a logger
     logger = logging.getLogger(logger_name)
     logger.setLevel(level)
@@ -9,8 +14,8 @@ def logger_setup(log_file, logger_name=__name__, level=logging.INFO):
     if logger.hasHandlers():
         return logger
 
-    # Create a file handler for the logger
-    handler = logging.FileHandler(log_file)
+    # Create a file handler for the logger with delay set to False
+    handler = logging.FileHandler(log_file, delay=False)
     handler.setLevel(level)
 
     # Create a formatter and add it to the handler
@@ -20,6 +25,6 @@ def logger_setup(log_file, logger_name=__name__, level=logging.INFO):
     # Add the handler to the logger
     logger.addHandler(handler)
 
-    print(f'Logger setup complete. Log file: {log_file}')  # Add this line
+    print(f'Logger setup complete. Log file: {os.path.basename(log_file)}')
 
     return logger
