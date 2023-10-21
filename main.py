@@ -5,7 +5,10 @@ from src.tokenizer.tokenizer import Tokenizer
 from src.punctuation_and_number_remover.punctuation_and_number_remover import PunctuationAndNumberRemover
 from src.stopwords_remover.stopwords_remover import StopwordsRemover
 from src.wordcloud_generator.wordcloud_generator import WordcloudGenerator
-from src.utils.logger_setup import logger
+from src.utils.logger_setup import logger_setup
+
+# Initialize the logger
+logger = logger_setup('logs/project_logs.log')
 
 def main():
     # Create instances of the classes
@@ -20,7 +23,9 @@ def main():
 
     # Fetch text
     start_time = time.time()
-    text = fetch_text.fetch()
+    html = fetch_text.fetch_html('http://www.gutenberg.org/files/1342/1342-0.txt')  # replace with your URL
+    text = fetch_text.parse_html(html)
+    text = fetch_text.clean_text(text)
     end_time = time.time()
     logger.info(f"1. Fetch text...✅ ({(end_time - start_time) * 1000} ms)")
 
