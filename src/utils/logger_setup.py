@@ -20,4 +20,6 @@ def logger_setup(log_file, logger_name=__name__, level=logging.INFO):
     # Add the handler to the logger
     logger.addHandler(handler)
 
+    print(f'Logger setup complete. Log file: {log_file}')  # Add this line
+
     return logger

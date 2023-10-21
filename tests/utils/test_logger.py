@@ -5,7 +5,9 @@ import unittest
 
 class TestLogging(unittest.TestCase):
     def setUp(self):
-        self.log_file = 'test_log.log'
+        log_dir = os.path.join(os.path.dirname(__file__), '..', 'logs')
+        os.makedirs(log_dir, exist_ok=True)
+        self.log_file = os.path.join(log_dir, 'project_logs.log')
         self.logger = logger_setup(self.log_file)
 
     def tearDown(self):

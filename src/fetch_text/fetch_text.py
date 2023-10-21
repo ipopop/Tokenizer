@@ -1,38 +1,54 @@
 import requests
 from bs4 import BeautifulSoup
+from src.utils.logger_setup import logger_setup
 
-def fetch_html(url):
-    try:
-        response = requests.get(url)
-        response.raise_for_status()
-    except requests.RequestException as e:
-        print(f"Failed to fetch HTML from {url}: {e}")
-        return None
-    return response.text
+# Initialize the logger
+logger = logger_setup('logs/project_logs.log')
 
-def parse_html(html):
-    soup = BeautifulSoup(html, 'html.parser')
+class FetchText:
+    @staticmethod
+    def fetch_html(url):
+        logger.info(f"Fetching HTML from {url}")
+        try:
+            response = requests.get(url)
+            response.raise_for_status()
+        except requests.RequestException as e:
+            logger.error(f"Failed to fetch HTML from {url}: {e}")
+            return None
+        logger.info("Successfully fetched HTML")
+        return response.text
 
-    # Remove script and style elements
-    for script in soup(["script", "style"]):
-        script.decompose()
+    @staticmethod
+    def parse_html(html):
+        logger.info("Parsing HTML")
+        soup = BeautifulSoup(html, 'html.parser')
 
-    return soup.get_text()
+        # Remove script and style elements
+        for script in soup(["script", "style"]):
+            script.decompose()
 
-def clean_text(text):
-    # Break into lines and remove leading and trailing space on each
-    lines = (line.strip() for line in text.splitlines())
+        logger.info("Successfully parsed HTML")
+        return soup.get_text()
 
-    # Break multi-headlines into a line each
-    chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
+    @staticmethod
+    def clean_text(text):
+        logger.info("Cleaning text")
+        # Break into lines and remove leading and trailing space on each
+        lines = (line.strip() for line in text.splitlines())
 
-    # Drop blank lines
-    return '\n'.join(chunk for chunk in chunks if chunk)
+        # Break multi-headlines into a line each
+        chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
 
-def fetch_text(url):
-    html = fetch_html(url)
-    if html is None:
-        return None
+        # Drop blank lines
+        cleaned_text = '\n'.join(chunk for chunk in chunks if chunk)
+        logger.info("Successfully cleaned text")
+        return cleaned_text
 
-    text = parse_html(html)
-    return clean_text(text)
+    @staticmethod
+    def fetch_text(url):
+        html = FetchText.fetch_html(url)
+        if html is None:
+            return None
+
+        text = FetchText.parse_html(html)
+        return FetchText.clean_text(text)
