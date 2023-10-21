@@ -64,3 +64,27 @@ Tests and logs for each of the steps in text processing and word cloud generatio
 
 
 For each of these steps, there is a corresponding function in code, and a test function in test file that checks if the function is working correctly. The logging be done within each function using the logger set up with setup_logger.
+
+
+---
+
+
+ log files are typically stored in a dedicated directory at the root level of the project. This makes it easy to find and manage the log files.
+
+The directory is often named logs or something similar. Here's an example of what the project structure might look like:
+
+/the_project
+    /src
+        /utils
+            logger_setup.py
+    /tests
+        /utils
+            test_logger.py
+    /logs
+        project_logs.log
+    README.md
+    @todo.md
+
+In this structure, project_logs.log is a log file stored in the logs directory. When you set up your logger, you would specify the path to the log file as 'logs/project_logs.log'.
+
+This is just a common convention and the actual location can vary depending on the specific requirements of your project. For example, in some projects, log files might be stored in a separate storage system or sent to a logging service, especially in distributed systems.

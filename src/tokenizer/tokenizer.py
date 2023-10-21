@@ -1,8 +1,11 @@
+from nltk.tokenize import WordPunctTokenizer
+from src.utils.logger_setup import logger_setup
+
 class Tokenizer:
     """A class used to tokenize text and perform related tasks."""
 
     @staticmethod
-    def tokenize(text):
+    def tokenize(text, log_file='logs/project_logs.log'):
         """
         Tokenizes the input text.
 
@@ -12,56 +15,14 @@ class Tokenizer:
         Returns:
         list: A list of tokens.
         """
-        return []
+        # Set up logger
+        logger = logger_setup(log_file)
 
-    @staticmethod
-    def token_frequency(text):
-        """
-        Calculates the frequency of each token in the input text.
+        # Tokenize the text
+        tokenizer = WordPunctTokenizer()
+        tokens = tokenizer.tokenize(text)
 
-        Parameters:
-        text (str): The text to analyze.
+        # Log the number of tokens generated
+        logger.info(f'Generated {len(tokens)} tokens')
 
-        Returns:
-        dict: A dictionary where the keys are tokens and the values are their frequencies.
-        """
-        return {}
-
-    @staticmethod
-    def generate_word_cloud(text):
-        """
-        Generates a word cloud from the input text.
-
-        Parameters:
-        text (str): The text to generate a word cloud from.
-
-        Returns:
-        None
-        """
-        return None
-
-    @staticmethod
-    def remove_stopwords(text):
-        """
-        Removes stopwords from the input text.
-
-        Parameters:
-        text (str): The text to remove stopwords from.
-
-        Returns:
-        str: The text with stopwords removed.
-        """
-        return text
-
-    @staticmethod
-    def remove_punctuation_and_numbers(text):
-        """
-        Removes punctuation and numbers from the input text.
-
-        Parameters:
-        text (str): The text to remove punctuation and numbers from.
-
-        Returns:
-        str: The text with punctuation and numbers removed.
-        """
-        return text
+        return tokens
