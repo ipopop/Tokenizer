@@ -1,21 +1,12 @@
 import string
+import logging
 
 class PunctuationAndNumberRemover:
-    """
-    A class used to remove punctuation and numbers from a text.
-    """
-
-    def __init__(self):
+    def __init__(self, logger=None):
         self.trans_table = str.maketrans('', '', string.punctuation + string.digits)
+        self.logger = logger or logging.getLogger(__name__)
 
     def remove_punctuation_and_numbers(self, text):
-        """
-        Removes all punctuation and numbers from the input text.
-
-        Parameters:
-        text (str): The text to remove punctuation and numbers from.
-
-        Returns:
-        str: The text with punctuation and numbers removed.
-        """
-        return text.translate(self.trans_table)
+        cleaned_text = text.translate(self.trans_table)
+        self.logger.info(f"Removed punctuation and numbers from text. Original length: {len(text)}, Cleaned length: {len(cleaned_text)}")
+        return cleaned_text
